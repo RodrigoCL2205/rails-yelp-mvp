@@ -1,0 +1,18 @@
+<p><strong>Nome:</strong> <%= @restaurant.name %></p>
+
+<p><strong>Endereço:</strong> <%= @restaurant.address %></p>
+
+<p><strong>Telefone:</strong> <%= @restaurant.phone_number %></p>
+
+<p><strong>Categoria:</strong> <%= @restaurant.category %></p>
+
+<%# <%= link_to 'Deixe uma avaliação', new_restaurant_review_path(@restaurant) %> %>
+<%= render 'reviews/form' %>
+
+<ol class="list-group list-group-numbered">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      Nota: <%= review.rating %> | Avaliação: <%= review.content %>
+    </li>
+  <% end %>
+</ol>
